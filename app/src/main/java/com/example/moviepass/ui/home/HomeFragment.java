@@ -15,7 +15,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
 
     private MovieListAdapter movieListAdapter;
 
-    private HomeViewModel homeViewModel;
 
     @Override
     protected FragmentHomeBinding getBinding(LayoutInflater inflater, ViewGroup container) {
@@ -24,7 +23,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
 
     @Override
     protected void setUi(View view, Bundle savedInstanceState) {
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         setAdapter();
         observeLiveData();
     }
@@ -35,12 +33,12 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding,HomeViewModel
     }
 
     private void observeLiveData() {
-        homeViewModel.movieList.observe(getViewLifecycleOwner(), response -> movieListAdapter.setMoviesList(response));
+        viewModel.movieList.observe(getViewLifecycleOwner(), response -> movieListAdapter.setMoviesList(response));
     }
 
     @Override
     protected void setViewModel() {
-//        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
     }
 
     @Override
