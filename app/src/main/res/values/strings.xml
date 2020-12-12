@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Moviepass</string>
+    <string name="content_desc_poster_image">Movie poster</string>
+    <string name="new_videos">New videos</string>
+</resources>
